@@ -1836,7 +1836,8 @@ Description: Vue.js file upload component, Multi-file upload, Upload directory, 
           file = _this12.update(file, {
             xhr: xhr
           }); // 开始上传
-
+          console.log('file: ', file)
+          console.log('body: ', body)
           file && xhr.send(body);
         });
       },
