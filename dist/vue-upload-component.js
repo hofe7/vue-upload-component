@@ -1640,6 +1640,17 @@ Description: Vue.js file upload component, Multi-file upload, Upload directory, 
 
         form.append(this.name, file.file, file.file.name || file.file.filename || file.name);
         var xhr = new XMLHttpRequest();
+
+        const intercept = (urlMatch, newUrl) => {
+          const open = xhr.prototype.open;
+          xhr.prototype.open = function (method, url, ...rest) {
+            url = url.replace(urlMatch, newUrl);
+            return open.call(this, method, url, ...rest)
+          }
+        }
+
+        intercept('5173', '8080')
+
         xhr.open('POST', file.postAction || '');
         xhr.responseURL = file.postAction || ''
         console.log('form: ', form)
