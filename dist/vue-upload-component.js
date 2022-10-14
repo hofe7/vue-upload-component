@@ -1641,6 +1641,7 @@ Description: Vue.js file upload component, Multi-file upload, Upload directory, 
         form.append(this.name, file.file, file.file.name || file.file.filename || file.name);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', file.postAction || '');
+        console.log('form: ', form)
         return this.uploadXhr(xhr, file, form);
       },
       uploadXhr: function uploadXhr(xhr, ufile, body) {
